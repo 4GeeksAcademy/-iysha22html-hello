@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Formulario de Registro</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+
+        .card {
+            border: 1px solid #ced4da;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: #007bff;
+            color: white;
+            padding: 1rem;
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+        }
+
+        .card-body {
+            padding: 2rem;
+        }
+
+        .form-control {
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+        }
+
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+        .btn {
+            border-radius: 0.25rem;
+        }
+
+        .btn-secondary {
+            background-color: #6c757d;
+            border: none;
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+        .alert{
+            display: flex;
+        }
+        .pb-3 {
+            padding-bottom: 1rem;
+        }
+
+        .mt-4 {
+            margin-top: 1.5rem;
+        }
+
+        .float-right {
+            float: right;
+        }
+
+        .text-muted {
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+
+<div class="row justify-content-center mt-5">
+    <div class="col-md-10 offset-md-1">
+        <div class="card card-outline-secondary">
+            <div class="card-header">
+                <h3 class="mb-0">Payment form example</h3>
+            </div>
+            <div class="card-body">
+                <div id="error-msg" class="alert alert-danger">Some fields are missing</div>
+                <form method="post" action="#">
+                    <div class="row mt-4">
+                        <div class="col-sm-6 pb-3">
+                            <label for="CARD#">CARD#</label>
+                            <input class="form-control" id="CARD#" placeholder="XXXXXXXXXXXXXXXX" type="text" required>
+                        </div>
+                        <div class="col-sm-6 pb-3">
+                            <label for="CVC">CVC</label>
+                            <input class="form-control" id="CVC#" placeholder="0000" type="number" required>
+                        </div>
+                        <div class="col-sm-6 pb-3">
+                            <label for="Amount$">Amount$</label>
+                            <input class="form-control" id="Amount$" placeholder="Amount" type="Amount" required>
+                        </div>
+                        <div class="col-sm-6 pb-3">
+                            <label for="firstName">First Name</label>
+                            <input class="form-control" id="firstName" type="text" required>
+                        </div>
+                        <div class="col-sm-6 pb-3">
+                            <label for="lastName">Last Name</label>
+                            <input class="form-control" id="lastName" type="text" required>
+                        </div>
+                        <div class="col-sm-6 pb-3">
+                            <label for="city">City</label>
+                            <input class="form-control" id="city" type="text" required>
+                        </div>
+                        <div class="col-sm-3 pb-3">
+                            < <label for="state">State</label>
+                            <select class="form-control custom-select" id="state" required>
+                                <option class="text-white bg-warning">Pick a state</option>
+                                <option value="AL">Alabama</option>
+                                <option value="AK">Alaska</option>
+                                <option value="AZ">Arizona</option>
+                                <option value="CA">California</option>
+                            </select>
+                        </div>
+                        <div class="col-sm-3 pb-3">
+                            <label for="zip">Postal Code</label>
+                            <input class="form-control" id="zip" type="text" required>
+                        </div>
+                        <div class="col-md-6 pb-3">
+                            <p>We acccept Method:</p>
+                            <div class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-secondary">
+                                    <input autocomplete="off" checked id="blue" name="options" type="radio">
+                                    <i class="fab fa-cc-mastercard"></i>
+                                </label> 
+                                <label class="btn btn-secondary">
+                                    <input autocomplete="off" id="green" name="options" type="radio">
+                                    <i class="fab fa-cc-visa"></i>
+                                </label> 
+                                <label class="btn btn-secondary">
+                                    <input autocomplete="off" id="black" name="options" type="radio">
+                                    <i class="fab fa-cc-diners-club"></i>
+                                </label> 
+                                <label class="btn btn-secondary">
+                                    <input autocomplete="off" id="white" type="radio">
+                                    <i class="fab fa-cc-amex"></i>
+                                </label> 
+                            </div>
+                        </div>
+                        <div class="col-md-6 pb-3">
+                            <label for="message">Message</label>
+                            <textarea class="form-control" id="message" rows="3"></textarea>
+                            <small class="text-muted">Add any notes here.</small>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer">
+                <div class="float-right">
+                    <button class="btn btn-secondary" type="reset">Cancel</button>
+                    <button id="sendForm" class="btn btn-primary" type="button">Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
